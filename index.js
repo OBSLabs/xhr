@@ -230,8 +230,8 @@ function getXml(xhr) {
     if (xhr.responseType === "document") {
         return xhr.responseXML
     }
-    var firefoxBugTakenEffect = xhr.responseXML && xhr.responseXML.documentElement.nodeName === "parsererror"
-    if (xhr.responseType === "" && !firefoxBugTakenEffect) {
+    
+    if (xhr.responseType === "" && !(xhr.responseXML && xhr.responseXML.documentElement.nodeName === "parsererror")) {
         return xhr.responseXML
     }
 
